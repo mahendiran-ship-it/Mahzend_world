@@ -1,7 +1,4 @@
-"""
-modules/nmap_tool.py
-Asks for a target IP, then a flag choice, then runs nmap.
-"""
+
 
 from utils import ask, run_command, print_flag_menu, check_tool_installed
 
@@ -17,26 +14,29 @@ FLAG_OPTIONS = [
 
 def run():
     if not check_tool_installed("nmap"):
-        print("[!] nmap is not installed. Install it with: sudo apt install nmap")
-        input("Press Enter to return to the menu...")
+        print("[!] nmap is not installed twin. Install it with: sudo apt install nmap")
+        input("Press Enter to return to the menu twin...")
         return
 
     print("\n=== NMAP ===")
-    target = ask("Enter target IP address or hostname: ")
+    target = ask("Enter target IP address or hostname twin: ")
     if not target:
-        print("[!] No target entered. Returning to menu.")
+        print("[!] No target entered. Returning to menu twin.")
         return
 
-    print_flag_menu("Choose a scan type", FLAG_OPTIONS)
-    choice = ask("Select an option: ")
+    print_flag_menu("Choose a scan type twin", FLAG_OPTIONS)
+    choice = ask("Select an option twin: ")
 
     if choice.isdigit() and 1 <= int(choice) <= len(FLAG_OPTIONS):
         flags = FLAG_OPTIONS[int(choice) - 1][1]
     elif choice.isdigit() and int(choice) == len(FLAG_OPTIONS) + 1:
-        flags = ask("Enter custom nmap flags (e.g. -sS -p 22,80,443): ")
+        flags = ask("Enter custom nmap flags (e.g. -sS -p 22,80,443) twin: ")
     else:
-        print("[!] Invalid choice. Returning to menu.")
+        print("[!] Invalid choice. Returning to menu twin.")
         return
 
     cmd = f"nmap {flags} {target}"
     run_command(cmd)
+
+
+#CREATED BY MAHZEND
