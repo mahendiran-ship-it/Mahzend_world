@@ -29,7 +29,6 @@ def clear_screen():
 
 def print_menu():
     print_banner()
-    name=input("ENTER YOUR NAME TWIN:")
     print("MAIN MENU")
     print("=========")
     for i, (label, _) in enumerate(MENU_ITEMS, start=1):
@@ -39,6 +38,7 @@ def print_menu():
 
 
 def main():
+    name=input("ENTER YOUR NAME TWIN:")
     while True:
         clear_screen()
         print_menu()
