@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+
 """
 WH_toolkit.py
 Entry point for WH TOOL KIT. Shows the banner + main menu and dispatches
