@@ -1,7 +1,4 @@
-"""
-modules/nslookup_tool.py
-Asks for a site, then a DNS record type / flag choice, then runs nslookup.
-"""
+"
 
 from utils import ask, run_command, print_flag_menu, check_tool_installed
 
@@ -16,31 +13,34 @@ FLAG_OPTIONS = [
 
 def run():
     if not check_tool_installed("nslookup"):
-        print("[!] nslookup is not installed. Install it with: sudo apt install dnsutils")
-        input("Press Enter to return to the menu...")
+        print("[!] nslookup is not installed twin. Install it with: sudo apt install dnsutils")
+        input("Press Enter to return to the menu twin...")
         return
 
     print("\n=== NSLOOKUP ===")
-    target = ask("Enter website / domain (e.g. example.com): ")
+    target = ask("Enter website / domain (e.g. Darkweb.com) twin: ")
     if not target:
-        print("[!] No target entered. Returning to menu.")
+        print("[!] No target entered. Returning to menu twin.")
         return
 
-    print_flag_menu("Choose a query type", FLAG_OPTIONS)
-    choice = ask("Select an option: ")
+    print_flag_menu("Choose a query type twin", FLAG_OPTIONS)
+    choice = ask("Select an option twin: ")
 
     if choice.isdigit() and 1 <= int(choice) <= len(FLAG_OPTIONS):
         flags = FLAG_OPTIONS[int(choice) - 1][1]
         if flags == "SERVER":
-            dns_server = ask("Enter DNS server (e.g. 8.8.8.8): ")
+            dns_server = ask("Enter DNS server (e.g. 8.8.8.8) twin: ")
             cmd = f"nslookup {target} {dns_server}"
             run_command(cmd)
             return
     elif choice.isdigit() and int(choice) == len(FLAG_OPTIONS) + 1:
-        flags = ask("Enter custom nslookup flags: ")
+        flags = ask("Enter custom nslookup flags twin: ")
     else:
-        print("[!] Invalid choice. Returning to menu.")
+        print("[!] Invalid choice. Returning to menu twin.")
         return
 
     cmd = f"nslookup {flags} {target}".replace("  ", " ")
     run_command(cmd)
+
+
+#CREATED BY MAHZEND
