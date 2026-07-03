@@ -1,7 +1,4 @@
-"""
-modules/nc_tool.py
-Opens a port with netcat (listener) or connects to a host:port.
-"""
+
 
 from utils import ask, run_command, print_flag_menu, check_tool_installed
 
@@ -14,13 +11,13 @@ FLAG_OPTIONS = [
 
 def run():
     if not check_tool_installed("nc"):
-        print("[!] nc (netcat) is not installed. Install it with: sudo apt install netcat")
-        input("Press Enter to return to the menu...")
+        print("[!] nc (netcat) is not installed twin . Install it with: sudo apt install netcat")
+        input("Press Enter to return to the menu twin...")
         return
 
     print("\n=== NETCAT (nc) ===")
-    print_flag_menu("Choose a mode", FLAG_OPTIONS)
-    choice = ask("Select an option: ")
+    print_flag_menu("Choose a mode twin", FLAG_OPTIONS)
+    choice = ask("Select an option twin: ")
 
     if choice.isdigit() and 1 <= int(choice) <= len(FLAG_OPTIONS):
         mode = FLAG_OPTIONS[int(choice) - 1][1]
@@ -30,8 +27,8 @@ def run():
             cmd = f"nc -lvnp {port}"
 
         elif mode == "CONNECT":
-            host = ask("Enter target host/IP: ")
-            port = ask("Enter target port: ")
+            host = ask("Enter target host/IP twin: ")
+            port = ask("Enter target port twin: ")
             cmd = f"nc -v {host} {port}"
 
         elif mode == "SCAN":
@@ -49,4 +46,7 @@ def run():
         return
 
     else:
-        print("[!] Invalid choice. Returning to menu.")
+        print("[!] Invalid choice. Returning to menu twin.")
+
+
+#CREATED BY MAHZEND
