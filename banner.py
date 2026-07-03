@@ -1,4 +1,7 @@
+from colorama import init, Fore, Style
 
+
+init(autoreset=True)
 
 BANNER = r"""
          .%.    .-*.                                                                    .#-.    .*..
@@ -37,7 +40,10 @@ BANNER = r"""
                                                  -=#.*#:*-=                                         
                                                  :++@*#@##:                                         
                                                  ..#@=-@%..                          
-                                                   ..==..                                         
+                                                   ..==..
+                                                    
+                                                    
+                                               
 
 
 
@@ -56,11 +62,10 @@ BANNER = r"""
 |__|  |__|  |__| .'.''| | | |     | |    .'   /    `.             .' |  |   |  |/_______.'/   
                 / /   | |_| |     | |   /    /___    `''-...... -'   |  |   |  |\_______|/    
                 \ \._,\ '/| '.    | '. |         |                   |  |   |  |              
-                 `--'  `" '---'   '---'|_________|                   '--'   '--'                                                
-                                                                        
-
+                 `--'  `" '---'   '---'|_________|                   '--'   '--'
 """
 
-
 def print_banner():
-    print(BANNER)
+    print(Style.BRIGHT + Fore.GREEN + BANNER + Style.RESET_ALL)
+    
+print_banner()
