@@ -1,4 +1,3 @@
-"
 
 from utils import ask, run_command, print_flag_menu, check_tool_installed
 
