@@ -1,7 +1,3 @@
-"""
-utils.py
-Shared helper functions used by every tool module in the toolkit.
-"""
 
 import subprocess
 import shlex
@@ -19,13 +15,13 @@ def run_command(cmd_str):
         cmd_list = shlex.split(cmd_str)
         subprocess.run(cmd_list)
     except FileNotFoundError:
-        print("[!] Command not found. Is the required tool installed?")
+        print("[!] Command not found twin. Is the required tool installed?")
     except KeyboardInterrupt:
-        print("\n[!] Command interrupted by user.")
+        print("\n[!] Command interrupted by you twin.")
     except Exception as e:
         print(f"[!] Error running command: {e}")
     print("-" * 60)
-    input("\nPress Enter to return to the menu...")
+    input("\nPress Enter to return to the menu twin...")
 
 
 def check_tool_installed(tool_name):
@@ -50,3 +46,5 @@ def print_flag_menu(title, options):
         print(f"[{i}] {label}")
     print(f"[{len(options)+1}] Custom flags (type your own)")
     return options
+
+#CREATED BY MAHZEND
