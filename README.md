@@ -1,4 +1,4 @@
-# net-toolkit
+## White Hat Tools Kit
 
 A simple Python-based menu interface that wraps common Linux networking
 commands (`nmap`, `whois`, `nslookup`, `ip addr`, `nc`) behind an easy
@@ -10,20 +10,15 @@ you the output, then returns to the main menu.
 
 - Linux (Debian/Ubuntu commands shown below)
 - Python 3.6+
-- The underlying command-line tools installed:
 
-```bash
-sudo apt update
-sudo apt install nmap whois dnsutils iproute2 netcat curl -y
-```
 
 ## Project structure
 
 ```
-net-toolkit/
-├── main.py                 # menu loop, dispatches to each tool
-├── banner.py                # your ASCII art lives here
-├── utils.py                 # shared helpers (run_command, ask, etc.)
+white hat/
+├── main.py                
+├── banner.py                
+├── utils.py                
 ├── modules/
 │   ├── __init__.py
 │   ├── nmap_tool.py
@@ -35,34 +30,7 @@ net-toolkit/
 └── README.md
 ```
 
-## Setup
-
-1. Clone the repo:
-   ```bash
-   git clone https://github.com/<your-username>/net-toolkit.git
-   cd net-toolkit
-   ```
-2. Paste your ASCII art into `banner.py`, inside the `BANNER` string.
-3. Run it:
-   ```bash
-   python3 main.py
-   ```
-   Some operations (nmap SYN scans, nc listening on ports < 1024) need
-   root, so run with `sudo python3 main.py` if you hit permission errors.
-
-## How each tool works
-
-Every tool module follows the same pattern:
-1. Ask for a target (IP / domain / port).
-2. Show a numbered list of common flags for that command, plus a
-   "Custom flags" option to type your own.
-3. Build the final command string and run it with `subprocess`.
-4. Print the real command output, then wait for Enter before
-   returning to the main menu.
-
-## Procedure: adding a new tool to the menu
-
-Say you want to add a 6th option, e.g. `traceroute`. Follow these steps:
+### If You Want to Add some Tools follow the Procedure
 
 ### 1. Create the new module file
 
@@ -147,8 +115,8 @@ changes needed.
 - Keep each module's `run()` function taking no arguments and
   returning `None`, so it plugs straight into `MENU_ITEMS`.
 
-## Disclaimer
+### Developer
 
-These tools (especially `nmap` and `nc`) can be used for network
-scanning and access. Only run them against systems and networks you
-own or have explicit permission to test.
+- MAHZEND (Z SILENT)
+- visit my other repo for more details
+  
