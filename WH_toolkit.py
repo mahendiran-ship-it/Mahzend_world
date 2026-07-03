@@ -1,33 +1,27 @@
-
 """
 WH_toolkit.py
-Entry point for WH TOOL KIT. Shows the banner + main menu and dispatches
-to the correct tool module based on the user's choice.
-
+Entry point for WH TOOL KIT. Shows the banner + main menu and dispatches to the correct tool module based on the user's choice.
 Run with:  python3 WH_toolkit.py
 (some options like nmap SYN scan or nc listen on low ports may need sudo)
 """
 
 import os
 import sys
-
 from banner import print_banner
 import nmap_tool, whois_tool, nslookup_tool, ipaddr_tool, nc_tool
 
 MENU_ITEMS = [
-    ("NMAP", nmap_tool.run),
-    ("WHOIS", whois_tool.run),
-    ("NSLOOKUP", nslookup_tool.run),
-    ("IP ADDRESS", ipaddr_tool.run),
-    ("NC (Netcat)", nc_tool.run),
+    ("NMAP" , nmap_tool.run) ,
+    ("WHOIS" , whois_tool.run) ,
+    ("NSLOOKUP" , nslookup_tool.run) ,
+    ("IP ADDRESS" , ipaddr_tool.run) ,
+    ("NC (Netcat)" , nc_tool.run) ,
 ]
-
 
 def clear_screen():
     os.system("clear" if os.name != "nt" else "cls")
 
-
-def print_menu():
+def print_menu(name):  # Added parameter here
     print_banner()
     print("MAIN MENU")
     print("=========")
@@ -36,14 +30,12 @@ def print_menu():
     print(f"[{len(MENU_ITEMS) + 1}] Exit")
     print()
 
-
-def main():
-    name=input("ENTER YOUR NAME TWIN:")
+def main(name):
     while True:
         clear_screen()
-        print_menu()
+        print_menu(name)  # Passed name into print_menu
         choice = input(f"Select an option {name}: ").strip()
-
+        
         if choice.isdigit() and 1 <= int(choice) <= len(MENU_ITEMS):
             clear_screen()
             MENU_ITEMS[int(choice) - 1][1]()
@@ -53,7 +45,12 @@ def main():
         else:
             input(f"[!] Invalid choice. Press Enter to try again {name} ...")
 
-
 if __name__ == "__main__":
-    main()
+    clear_screen()
+    print_banner()
+    # Ask for the name here so it's captured before main() starts
+    user_name = input("ENTER YOUR NAME TWIN: ").strip()
+    main(user_name)
+
+
 #CREATED BY MAHZEND
